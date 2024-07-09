@@ -10,7 +10,7 @@ import {
   CREATOR_TWITTER_NAME,
 } from "@/consts/siteData";
 import Navbar from "@/components/Navbar";
-import Footer from "./sections/Footer";
+import Footer from "../sections/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
