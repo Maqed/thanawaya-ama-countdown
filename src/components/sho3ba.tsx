@@ -3,9 +3,7 @@ import Countdown from "react-countdown";
 import {
   Table,
   TableBody,
-  TableCaption,
   TableCell,
-  TableFooter,
   TableHead,
   TableHeader,
   TableRow,
