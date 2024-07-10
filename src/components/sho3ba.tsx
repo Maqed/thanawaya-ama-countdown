@@ -8,21 +8,35 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import { useReward } from "react-rewards";
 
 type Sho3baProps = {
   name: string;
   finishDate: Date;
+  finishEmojis: string[];
 };
 
-function Sho3ba({ name, finishDate }: Sho3baProps) {
+function Sho3ba({ name, finishDate, finishEmojis }: Sho3baProps) {
   return (
     <div className="flex flex-col justify-center items-center">
       <h1 className="text-2xl font-bold">{name}</h1>
-      <Sho3baCountdown name={name} finishDate={finishDate} />
+      <Sho3baCountdown
+        finishEmojis={finishEmojis}
+        name={name}
+        finishDate={finishDate}
+      />
     </div>
   );
 }
-function Sho3baCountdown({ name, finishDate }: Sho3baProps) {
+function Sho3baCountdown({ name, finishDate, finishEmojis }: Sho3baProps) {
+  const { reward: confettiReward } = useReward(
+    `${name}-confettiReward`,
+    "confetti"
+  );
+  const { reward: emojiReward } = useReward(`${name}-emojiReward`, "emoji", {
+    emoji: finishEmojis,
+    startVelocity: 25,
+  });
   const renderer = ({
     days,
     hours,
@@ -39,11 +53,17 @@ function Sho3baCountdown({ name, finishDate }: Sho3baProps) {
     if (completed) {
       // Render a completed state
       return (
-        <h3 className="text-3xl">
-          الف الف مبروك لشعبة{" "}
-          <span className="text-primary font-bold">{name}</span> انهم خلصوا
-          الامتحانات
-        </h3>
+        <div
+          onClick={() => {
+            confettiReward();
+            emojiReward();
+          }}
+          className="cursor-pointer flex flex-col justify-center items-center pt-3"
+        >
+          <span id={`${name}-confettiReward`} />
+          <span id={`${name}-emojiReward`} />
+          <h3 className="text-3xl">🥳</h3>
+        </div>
       );
     } else {
       // Render a countdown
