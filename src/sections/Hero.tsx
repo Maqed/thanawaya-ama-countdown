@@ -3,7 +3,7 @@ import { CURRENT_YEAR } from "@/consts/siteData";
 
 function Hero() {
   return (
-    <div className="flex justify-around items-center flex-col gap-5 py-10 min-h-[calc(100vh-120px)]">
+    <div className="flex justify-around items-center flex-col gap-5 py-10 min-h-[calc(100vh-64px-58px)]">
       <Sho3ba
         name="علمي رياضة"
         finishEmojis={["📐", "✖️", "♾️", "𝞹", "🧠", "e"]}

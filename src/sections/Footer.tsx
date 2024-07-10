@@ -3,11 +3,19 @@ import Link from "next/link";
 
 function Footer() {
   return (
-    <footer className="bg-primary text-primary-foreground py-4 flex justify-center items-center">
-      Made with ❤️ by{" "}
-      <Link target="_blank" className="pl-1" href={CREATOR_LINK}>
-        {CREATOR}
-      </Link>
+    <footer className="py-4 flex justify-center items-center border-t-2">
+      <p>
+        Made with ❤️ by{" "}
+        <b>
+          <Link
+            target="_blank"
+            className="inline text-primary"
+            href={CREATOR_LINK}
+          >
+            {CREATOR}
+          </Link>
+        </b>
+      </p>
     </footer>
   );
 }
