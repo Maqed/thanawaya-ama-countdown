@@ -9,6 +9,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { useReward } from "react-rewards";
+import { useEffect } from "react";
 
 type Sho3baProps = {
   name: string;
@@ -37,6 +38,13 @@ function Sho3baCountdown({ name, finishDate, finishEmojis }: Sho3baProps) {
     emoji: finishEmojis,
     startVelocity: 25,
   });
+  useEffect(() => {
+    // Check whether exams ended or not
+    if (new Date(finishDate) < new Date(Date.now())) {
+      confettiReward();
+      emojiReward();
+    }
+  }, []);
   const renderer = ({
     days,
     hours,
