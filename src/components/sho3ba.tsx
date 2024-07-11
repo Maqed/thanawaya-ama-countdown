@@ -45,7 +45,7 @@ function Sho3baCountdown({ name, finishDate, finishEmojis }: Sho3baProps) {
       emojiReward();
     }
   }, []);
-  const renderer = ({
+  const CountdownRenderer = ({
     days,
     hours,
     minutes,
@@ -98,7 +98,11 @@ function Sho3baCountdown({ name, finishDate, finishEmojis }: Sho3baProps) {
     }
   };
   return (
-    <Countdown className="text-3xl" renderer={renderer} date={finishDate} />
+    <Countdown
+      className="text-3xl"
+      renderer={CountdownRenderer}
+      date={finishDate}
+    />
   );
 }
 
