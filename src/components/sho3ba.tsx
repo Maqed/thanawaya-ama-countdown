@@ -38,11 +38,14 @@ function Sho3baCountdown({ name, finishDate, finishEmojis }: Sho3baProps) {
     emoji: finishEmojis,
     startVelocity: 25,
   });
+  function giveReward() {
+    confettiReward();
+    emojiReward();
+  }
   useEffect(() => {
     // Check whether exams ended or not
     if (new Date(finishDate) < new Date(Date.now())) {
-      confettiReward();
-      emojiReward();
+      giveReward();
     }
   }, []);
   const CountdownRenderer = ({
@@ -63,8 +66,7 @@ function Sho3baCountdown({ name, finishDate, finishEmojis }: Sho3baProps) {
       return (
         <div
           onClick={() => {
-            confettiReward();
-            emojiReward();
+            giveReward();
           }}
           className="cursor-pointer flex flex-col justify-center items-center pt-3"
         >
@@ -102,6 +104,9 @@ function Sho3baCountdown({ name, finishDate, finishEmojis }: Sho3baProps) {
       className="text-3xl"
       renderer={CountdownRenderer}
       date={finishDate}
+      onComplete={() => {
+        giveReward();
+      }}
     />
   );
 }
