@@ -1,5 +1,7 @@
 export const APP_NAME = "Thanawaya Ama Countdown";
+export const APP_LOGO = "/logo.png";
 
+// Creator
 export const CREATOR_LINK = "https://magedibrahim.vercel.app/";
 export const CREATOR = "Maged Ibrahim";
 export const CREATOR_IMG_SRC = "/Maged Ibrahim.png";

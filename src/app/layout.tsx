@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import { ThemeProvider } from "@/providers/ThemeProvider";
 import { Inter } from "next/font/google";
 import {
+  APP_LOGO,
   APP_NAME,
   CREATOR,
   CREATOR_LINK,
@@ -24,6 +25,9 @@ export const metadata: Metadata = {
   authors: [{ name: CREATOR, url: CREATOR_LINK }],
   creator: CREATOR,
   publisher: CREATOR,
+  icons: {
+    icon: APP_LOGO,
+  },
   twitter: {
     card: "summary_large_image",
     title,
@@ -31,6 +35,7 @@ export const metadata: Metadata = {
     siteId: CREATOR_TWITTER_ID,
     creator: CREATOR_TWITTER_NAME,
     creatorId: CREATOR_TWITTER_ID,
+    images: [APP_LOGO],
   },
   openGraph: {
     title,
@@ -38,6 +43,7 @@ export const metadata: Metadata = {
     siteName: APP_NAME,
     locale: "en_US",
     type: "website",
+    images: [APP_LOGO],
   },
 };
 export default function RootLayout({
