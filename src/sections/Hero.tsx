@@ -1,9 +1,14 @@
-import Sho3ba from "@/components/sho3ba";
 import { CURRENT_YEAR } from "@/consts/siteData";
+import { Skeleton } from "@/components/ui/skeleton";
+import dynamic from "next/dynamic";
+
+const Sho3ba = dynamic(() => import("@/components/sho3ba"), {
+  loading: () => <Skeleton className="w-[190px] h-[36.4px]" />,
+});
 
 function Hero() {
   return (
-    <div className="flex justify-around items-center flex-col gap-5 py-10 min-h-[calc(100vh-64px-58px)]">
+    <div className="flex justify-around items-center flex-col gap-5 py-10 min-h-[calc(100vh-64px-63.6px)]">
       <Sho3ba
         name="علمي رياضة"
         finishEmojis={["📐", "✖️", "♾️", "𝞹", "🧠", "e", "🎓"]}
