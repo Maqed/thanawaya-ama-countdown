@@ -4,6 +4,7 @@ import dynamic from "next/dynamic";
 
 const Sho3ba = dynamic(() => import("@/components/sho3ba"), {
   loading: () => <Skeleton className="w-[190px] h-[36.4px]" />,
+  ssr: false,
 });
 
 function Hero() {
