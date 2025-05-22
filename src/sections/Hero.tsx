@@ -9,7 +9,7 @@ const Sho3ba = dynamic(() => import("@/components/sho3ba"), {
 
 function Hero() {
   return (
-    <div className="flex justify-around items-center flex-col gap-5 py-10 min-h-[calc(100vh-64px-63.6px)]">
+    <div className="flex justify-center items-center flex-col gap-5">
       <Sho3ba
         name="علمي رياضة"
         finishEmojis={["📐", "✖️", "♾️", "𝞹", "🧠", "e", "🎓"]}

@@ -13,6 +13,7 @@ import {
 } from "@/consts/siteData";
 import Navbar from "@/components/Navbar";
 import Footer from "../sections/Footer";
+import { cn } from "@/lib/utils";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -53,19 +54,21 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
+      <ThemeProvider
+        attribute="class"
+        defaultTheme="system"
+        enableSystem
+        disableTransitionOnChange
+      >
+        <body className={cn("flex flex-col min-h-screen", inter.className)}>
           <Navbar />
-          <main>{children}</main>
+          <main className="flex justify-center items-center flex-1">
+            {children}
+          </main>
           <Footer />
-        </ThemeProvider>
-        <Analytics />
-      </body>
+          <Analytics />
+        </body>
+      </ThemeProvider>
     </html>
   );
 }
