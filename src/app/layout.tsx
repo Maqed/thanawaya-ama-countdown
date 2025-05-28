@@ -20,6 +20,7 @@ const inter = Inter({ subsets: ["latin"] });
 const title = APP_NAME;
 const description = `Welcome to ${APP_NAME}, here you will know when will thanawya ama end`;
 export const metadata: Metadata = {
+  metadataBase: new URL("https://thanawaya-ama-countdown.vercel.app"),
   title,
   description,
   keywords: ["Thanawaya Ama", "Countdown"],
