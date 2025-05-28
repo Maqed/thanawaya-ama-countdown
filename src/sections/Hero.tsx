@@ -12,16 +12,22 @@ function Hero() {
     <div className="flex justify-center items-center flex-col gap-5">
       <Sho3ba
         name="علمي رياضة"
+        startDate={new Date(`${CURRENT_YEAR}-06-15T09:00:00Z`)}
+        startEmojis={["💪", "🔥", "⚡", "🚀", "💯", "🎯", "💫"]}
         finishEmojis={["📐", "✖️", "♾️", "𝞹", "🧠", "e", "🎓"]}
         finishDate={new Date(`${CURRENT_YEAR}-07-10T08:00:00Z`)}
       />
       <Sho3ba
         name="علمي علوم"
+        startDate={new Date(`${CURRENT_YEAR}-06-15T09:00:00Z`)}
+        startEmojis={["💪", "🔥", "⚡", "🚀", "💯", "🎯", "💫"]}
         finishEmojis={["🧪", "🧬", "🌱", "⌬", "🌏", "👨🏻‍🔬", "🎓"]}
         finishDate={new Date(`${CURRENT_YEAR}-07-10T09:00:00Z`)}
       />
       <Sho3ba
         name="ادبي"
+        startDate={new Date(`${CURRENT_YEAR}-06-15T09:00:00Z`)}
+        startEmojis={["💪", "🔥", "⚡", "🚀", "💯", "🎯", "💫"]}
         finishEmojis={["📜", "🎭", "🎨", "🏛️", "📖", "🎓"]}
         finishDate={new Date(`${CURRENT_YEAR}-07-10T09:00:00Z`)}
       />

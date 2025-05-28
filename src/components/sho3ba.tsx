@@ -11,25 +11,69 @@ import {
 import { useReward } from "react-rewards";
 import { useEffect } from "react";
 
-type Sho3baProps = {
+type Sho3baCountdownProps = {
   name: string;
   finishDate: Date;
   finishEmojis: string[];
 };
 
-function Sho3ba({ name, finishDate, finishEmojis }: Sho3baProps) {
+function Sho3ba({
+  name,
+  startDate,
+  finishDate,
+  finishEmojis,
+  startEmojis,
+}: Sho3baCountdownProps & {
+  startDate: Date;
+  startEmojis: string[];
+}) {
   return (
     <div className="flex flex-col justify-center items-center">
       <h1 className="text-2xl font-bold">{name}</h1>
-      <Sho3baCountdown
-        finishEmojis={finishEmojis}
-        name={name}
-        finishDate={finishDate}
-      />
+      <div className="flex flex-col gap-4">
+        <Table>
+          <TableHeader>
+            <TableRow>
+              <TableHead>الايام</TableHead>
+              <TableHead>الساعات</TableHead>
+              <TableHead>الدقايق</TableHead>
+              <TableHead>الثواني</TableHead>
+              <TableHead>النوع</TableHead>
+            </TableRow>
+          </TableHeader>
+
+          <TableBody>
+            <Sho3baCountdown
+              name={`${name}-start`}
+              cellName="البداية"
+              finishedCountdownEmoji="⚡"
+              finishEmojis={startEmojis}
+              finishDate={startDate}
+            />
+            <Sho3baCountdown
+              name={`${name}-finish`}
+              cellName="النهاية"
+              finishedCountdownEmoji="🥳"
+              finishEmojis={finishEmojis}
+              finishDate={finishDate}
+            />
+          </TableBody>
+        </Table>
+      </div>
     </div>
   );
 }
-function Sho3baCountdown({ name, finishDate, finishEmojis }: Sho3baProps) {
+
+function Sho3baCountdown({
+  name,
+  finishedCountdownEmoji,
+  finishDate,
+  finishEmojis,
+  cellName,
+}: Sho3baCountdownProps & {
+  finishedCountdownEmoji: string;
+  cellName: string;
+}) {
   const { reward: confettiReward } = useReward(
     `${name}-confettiReward`,
     "confetti"
@@ -38,16 +82,18 @@ function Sho3baCountdown({ name, finishDate, finishEmojis }: Sho3baProps) {
     emoji: finishEmojis,
     startVelocity: 25,
   });
+
   function giveReward() {
     confettiReward();
     emojiReward();
   }
+
   useEffect(() => {
-    // Check whether exams ended or not
     if (new Date(finishDate) < new Date(Date.now())) {
       giveReward();
     }
   }, []);
+
   const CountdownRenderer = ({
     days,
     hours,
@@ -62,43 +108,35 @@ function Sho3baCountdown({ name, finishDate, finishEmojis }: Sho3baProps) {
     completed: boolean;
   }) => {
     if (completed) {
-      // Render a completed state
       return (
-        <div
-          onClick={() => {
-            giveReward();
-          }}
-          className="cursor-pointer flex flex-col justify-center items-center pt-3"
-        >
-          <span id={`${name}-confettiReward`} />
-          <span id={`${name}-emojiReward`} />
-          <h3 className="text-3xl">🥳</h3>
-        </div>
+        <TableRow>
+          <TableCell colSpan={5}>
+            <div
+              onClick={() => {
+                giveReward();
+              }}
+              className="cursor-pointer"
+            >
+              <span id={`${name}-confettiReward`} />
+              <span id={`${name}-emojiReward`} />
+              <h3 className="text-3xl">{finishedCountdownEmoji}</h3>
+            </div>
+          </TableCell>
+        </TableRow>
       );
     } else {
-      // Render a countdown
       return (
-        <Table>
-          <TableHeader>
-            <TableRow>
-              <TableHead>الايام</TableHead>
-              <TableHead>الساعات</TableHead>
-              <TableHead>الدقايق</TableHead>
-              <TableHead>الثواني</TableHead>
-            </TableRow>
-          </TableHeader>
-          <TableBody>
-            <TableRow>
-              <TableCell>{days}</TableCell>
-              <TableCell>{hours}</TableCell>
-              <TableCell>{minutes}</TableCell>
-              <TableCell>{seconds}</TableCell>
-            </TableRow>
-          </TableBody>
-        </Table>
+        <TableRow>
+          <TableCell>{days}</TableCell>
+          <TableCell>{hours}</TableCell>
+          <TableCell>{minutes}</TableCell>
+          <TableCell>{seconds}</TableCell>
+          <TableCell>{cellName}</TableCell>
+        </TableRow>
       );
     }
   };
+
   return (
     <Countdown
       className="text-3xl"
