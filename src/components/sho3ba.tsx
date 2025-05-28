@@ -110,17 +110,17 @@ function Sho3baCountdown({
     if (completed) {
       return (
         <TableRow>
-          <TableCell colSpan={5}>
-            <div
+          <TableCell className="p-0" colSpan={5}>
+            <button
               onClick={() => {
                 giveReward();
               }}
-              className="cursor-pointer"
+              className="cursor-pointer p-2 w-full h-full"
             >
               <span id={`${name}-confettiReward`} />
               <span id={`${name}-emojiReward`} />
               <h3 className="text-3xl">{finishedCountdownEmoji}</h3>
-            </div>
+            </button>
           </TableCell>
         </TableRow>
       );
