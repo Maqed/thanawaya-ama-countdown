@@ -1,5 +1,7 @@
+// App
 export const APP_NAME = "Thanawaya Ama Countdown";
 export const APP_LOGO = "/logo.png";
+export const PRODUCTION_URL = "https://thanawaya-ama-countdown.vercel.app";
 
 // Creator
 export const CREATOR_LINK = "https://magedibrahim.is-a.dev/";

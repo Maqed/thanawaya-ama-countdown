@@ -10,6 +10,7 @@ import {
   CREATOR_LINK,
   CREATOR_TWITTER_ID,
   CREATOR_TWITTER_NAME,
+  PRODUCTION_URL,
 } from "@/consts/siteData";
 import Navbar from "@/components/Navbar";
 import Footer from "../sections/Footer";
@@ -20,7 +21,7 @@ const inter = Inter({ subsets: ["latin"] });
 const title = APP_NAME;
 const description = `Welcome to ${APP_NAME}, here you will know when will thanawya ama end`;
 export const metadata: Metadata = {
-  metadataBase: new URL("https://thanawaya-ama-countdown.vercel.app"),
+  metadataBase: new URL(PRODUCTION_URL),
   title,
   description,
   keywords: ["Thanawaya Ama", "Countdown"],
