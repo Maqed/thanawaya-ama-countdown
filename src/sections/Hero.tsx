@@ -12,24 +12,24 @@ function Hero() {
     <div className="flex justify-center items-center flex-col gap-5">
       <Sho3ba
         name="علمي رياضة"
-        startDate={new Date(`${CURRENT_YEAR}-06-15T09:00:00Z`)}
+        startDate={new Date(`${CURRENT_YEAR}-06-15T09:00:00+02:00`)}
         startEmojis={["💪", "🔥", "⚡", "🚀", "💯", "🎯", "💫"]}
         finishEmojis={["📐", "✖️", "♾️", "𝞹", "🧠", "e", "🎓"]}
-        finishDate={new Date(`${CURRENT_YEAR}-07-10T08:00:00Z`)}
+        finishDate={new Date(`${CURRENT_YEAR}-07-10T11:00:00+02:00`)}
       />
       <Sho3ba
         name="علمي علوم"
-        startDate={new Date(`${CURRENT_YEAR}-06-15T09:00:00Z`)}
+        startDate={new Date(`${CURRENT_YEAR}-06-15T09:00:00+02:00`)}
         startEmojis={["💪", "🔥", "⚡", "🚀", "💯", "🎯", "💫"]}
         finishEmojis={["🧪", "🧬", "🌱", "⌬", "🌏", "👨🏻‍🔬", "🎓"]}
-        finishDate={new Date(`${CURRENT_YEAR}-07-10T09:00:00Z`)}
+        finishDate={new Date(`${CURRENT_YEAR}-07-10T12:00:00+02:00`)}
       />
       <Sho3ba
         name="ادبي"
-        startDate={new Date(`${CURRENT_YEAR}-06-15T09:00:00Z`)}
+        startDate={new Date(`${CURRENT_YEAR}-06-15T09:00:00+02:00`)}
         startEmojis={["💪", "🔥", "⚡", "🚀", "💯", "🎯", "💫"]}
         finishEmojis={["📜", "🎭", "🎨", "🏛️", "📖", "🎓"]}
-        finishDate={new Date(`${CURRENT_YEAR}-07-10T09:00:00Z`)}
+        finishDate={new Date(`${CURRENT_YEAR}-07-10T12:00:00+02:00`)}
       />
     </div>
   );
